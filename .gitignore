@@ -35,3 +35,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/StreamingAssets.meta
+Assets/StreamingAssets/connections.xml
+Assets/StreamingAssets/connections.xml.meta
+Assets/StreamingAssets/nodes.xml
+Assets/StreamingAssets/nodes.xml.meta
+Logs/Packages-Update.log
