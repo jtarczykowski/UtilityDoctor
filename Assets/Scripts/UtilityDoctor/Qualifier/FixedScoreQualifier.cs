@@ -6,7 +6,9 @@ namespace UtilityDoctor
     {
         public float score;
 
-        public FixedScoreQualifier(float score = 0)
+        public FixedScoreQualifier() : this(0f){ }
+
+        public FixedScoreQualifier(float score)
         {
             this.score = score;
         }
