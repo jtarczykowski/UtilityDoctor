@@ -29,8 +29,17 @@ namespace UtilityDoctor.Editor
 
                 foreach (var qualifier in selector.qualifiers)
                 {
-                    var typeName = qualifier.GetType().Name;
-                    GUI.Box(qualifiersRect, typeName, selectorSkin.button);
+                    if(qualifier.name == null)
+                    {
+                        qualifier.name = qualifier.GetType().Name;
+                    }
+                    
+                    if(GUI.Button(qualifiersRect, qualifier.name, selectorSkin.button))
+                    {
+                        var qualifierEditor = EditorWindow.GetWindow<QualifierEditor>();
+                        qualifierEditor.qualifier = qualifier;
+                    }
+                    
                     qualifiersRect.position -= qualifiersRect.height * Vector2.down * 1.25f;
                 }
             }
