@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace UtilityDoctor.Editor
 {
-    public class QualifierEditor : EditorWindow
+    public class QualifierWindow : EditorWindow
     {
         public Qualifier qualifier;
 
@@ -34,7 +34,7 @@ namespace UtilityDoctor.Editor
 
                 GUILayout.BeginHorizontal();
                 GUILayout.Box(scorer.GetType().Name);
-                toggles[i] = GUILayout.Toggle(toggles[0],"select");
+                toggles[i] = GUILayout.Toggle(toggles[i],"select");
                 GUILayout.EndHorizontal();
             }
 
@@ -58,20 +58,8 @@ namespace UtilityDoctor.Editor
 
         private void AddNewScorer()
         {
-            var scorerTypes = typeof(Scorer).Assembly
-                .GetTypes()
-                .Where(t => t.IsSubclassOf(typeof(Scorer)))
-                .ToArray();
-
-            foreach(var type in scorerTypes)
-            {
-                if(GUILayout.Button(type.Name))
-                {
-                    var scorer = Activator.CreateInstance(type) as Scorer;
-                    qualifier.scorers.Add(scorer);
-                    return;
-                }
-            }
+            var window = GetWindow<AddScorerWindow>();
+            window.Init(qualifier);
         }
     }
 }

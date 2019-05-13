@@ -36,7 +36,7 @@ namespace UtilityDoctor.Editor
                     
                     if(GUI.Button(qualifiersRect, qualifier.name, selectorSkin.button))
                     {
-                        var qualifierEditor = EditorWindow.GetWindow<QualifierEditor>();
+                        var qualifierEditor = EditorWindow.GetWindow<QualifierWindow>();
                         qualifierEditor.qualifier = qualifier;
                     }
                     
