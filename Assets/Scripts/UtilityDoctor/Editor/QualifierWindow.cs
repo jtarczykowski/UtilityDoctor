@@ -11,11 +11,18 @@ namespace UtilityDoctor.Editor
     {
         public Qualifier qualifier;
 
+        private GUISkin qualifierWindowSkin;
+
         private List<bool> toggles = new List<bool>();
+
+        private void OnEnable()
+        {
+            qualifierWindowSkin = Resources.Load("QualifierWindowSkin") as GUISkin;
+        }
 
         private void OnGUI()
         {
-            qualifier.name = GUILayout.TextField(qualifier.name);
+            qualifier.name = GUILayout.TextField(qualifier.name, qualifierWindowSkin.textField);
             var scorers = qualifier.scorers;
 
 
@@ -28,22 +35,31 @@ namespace UtilityDoctor.Editor
                 }
             }
 
-            for(int i = 0; i < scorers.Count; ++i)
+            GUILayout.Space(10f);
+
+            for (int i = 0; i < scorers.Count; ++i)
             {
                 var scorer = scorers[i];
 
                 GUILayout.BeginHorizontal();
-                GUILayout.Box(scorer.GetType().Name);
+                GUILayout.Space(10f);
+
+                scorer.ScorerName = GUILayout.TextField(scorer.ScorerName, qualifierWindowSkin.button);
+
                 toggles[i] = GUILayout.Toggle(toggles[i],"select");
                 GUILayout.EndHorizontal();
+
+                GUILayout.Space(2f);
             }
 
+            GUILayout.Space(10f);
+
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Add new scorer"))
+            if (GUILayout.Button("Add new scorer", qualifierWindowSkin.button))
             {
                 AddNewScorer();
             }
-            if (GUILayout.Button("Remove selected"))
+            if (GUILayout.Button("Remove selected", qualifierWindowSkin.button))
             {
                 for (int i = toggles.Count - 1; i >= 0; --i)
                 {

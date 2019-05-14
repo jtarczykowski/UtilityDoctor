@@ -29,6 +29,7 @@ namespace UtilityDoctor.Editor
                 if (GUILayout.Button(type.Name))
                 {
                     var scorer = Activator.CreateInstance(type) as Scorer;
+                    scorer.ScorerName = scorer.GetType().Name;
                     qualifier.scorers.Add(scorer);
                     GUI.changed = true;
                     Close();
