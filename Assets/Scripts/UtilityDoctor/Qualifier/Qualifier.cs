@@ -7,6 +7,7 @@ namespace UtilityDoctor
         public IAction action;
         public List<Scorer> scorers = new List<Scorer>();
         public string name;
+        public string description;
 
         public float Score(Blackboard blackboard)
         {

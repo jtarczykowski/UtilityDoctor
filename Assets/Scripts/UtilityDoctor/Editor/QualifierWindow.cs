@@ -14,6 +14,7 @@ namespace UtilityDoctor.Editor
         private GUISkin qualifierWindowSkin;
 
         private List<bool> toggles = new List<bool>();
+        private List<Type> scorerTypes;
 
         private void OnEnable()
         {
@@ -22,7 +23,16 @@ namespace UtilityDoctor.Editor
 
         private void OnGUI()
         {
+            GUILayout.Label("Qualifier name",qualifierWindowSkin.label);
+            GUILayout.Space(2f);
+
             qualifier.name = GUILayout.TextField(qualifier.name, qualifierWindowSkin.textField);
+
+            GUILayout.Label("Qualifier description", qualifierWindowSkin.label);
+            GUILayout.Space(2f);
+
+            qualifier.description = GUILayout.TextArea(qualifier.description, qualifierWindowSkin.textArea);
+
             var scorers = qualifier.scorers;
 
 
@@ -36,6 +46,9 @@ namespace UtilityDoctor.Editor
             }
 
             GUILayout.Space(10f);
+            GUILayout.Label("Scorers:", qualifierWindowSkin.label);
+            GUILayout.Space(2f);
+
 
             for (int i = 0; i < scorers.Count; ++i)
             {
@@ -44,9 +57,31 @@ namespace UtilityDoctor.Editor
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(10f);
 
+                toggles[i] = GUILayout.Toggle(toggles[i],string.Empty);
+                GUILayout.Space(5f);
+                
+                if(EditorGUILayout.DropdownButton( new GUIContent(scorer.GetType().Name),FocusType.Keyboard))
+                {
+                    var rect = GUILayoutUtility.GetLastRect();
+                    var dropdownMenu = new GenericMenu();
+
+                    scorerTypes = typeof(Scorer).Assembly
+                    .GetTypes()
+                    .Where(t => t.IsSubclassOf(typeof(Scorer)))
+                    .ToList();
+
+                    foreach(var sc in scorerTypes)
+                    {
+                        string name = sc.Name;
+                        dropdownMenu.AddItem(new GUIContent(name),false,() => ChangeScorerType(i,sc));
+                    }
+
+                    dropdownMenu.ShowAsContext();
+                    return;
+                }
+
                 scorer.ScorerName = GUILayout.TextField(scorer.ScorerName, qualifierWindowSkin.button);
 
-                toggles[i] = GUILayout.Toggle(toggles[i],"select");
                 GUILayout.EndHorizontal();
 
                 GUILayout.Space(2f);
@@ -72,9 +107,18 @@ namespace UtilityDoctor.Editor
             GUILayout.EndHorizontal();
         }
 
+        private void ChangeScorerType(int i, Type type)
+        {
+            var scorer = Activator.CreateInstance(type) as Scorer;
+            scorer.ScorerName = scorer.GetType().Name;
+            qualifier.scorers[i] = scorer;
+            GUI.changed = true;
+        }
+
         private void AddNewScorer()
         {
             var window = GetWindow<AddScorerWindow>();
+            window.position = this.position;
             window.Init(qualifier);
         }
     }
