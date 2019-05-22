@@ -72,7 +72,7 @@ namespace UtilityDoctor.Editor
         }
 
         public SelectorNode(Vector2 position, Vector2 dimensions, NodeStyleInfo styleInfo,
-            Action<ConnectionPoint> onClickInPoint, Action<ConnectionPoint> onClickOutPoint,
+            Action<ConnectionPointBase> onClickInPoint, Action<ConnectionPointBase> onClickOutPoint,
             Action<Node> onClickRemoveNode, string inPointId = null, string outPointId = null) :
             base(position, dimensions, styleInfo, onClickInPoint, onClickOutPoint, onClickRemoveNode, inPointId, outPointId)
         {
