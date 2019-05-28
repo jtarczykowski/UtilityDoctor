@@ -44,14 +44,13 @@ namespace UtilityDoctor.Editor
 
         private SelectorNode CreateSelectorNode(Vector2 mousePosition,Selector selector)
         {
-            var selectorNode =  new SelectorNode(mousePosition,
+            var selectorNode =  new SelectorNode(selector,
+                mousePosition,
                 defaultNodeDimensions,
                 defaultNodeStyle,
                 OnClickInPoint,
                 OnClickOutPoint,
                 OnClickRemoveNode);
-
-            selectorNode.selector = selector;
             return selectorNode;
         }
 

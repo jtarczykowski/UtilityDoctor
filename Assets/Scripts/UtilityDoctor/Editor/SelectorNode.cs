@@ -11,6 +11,7 @@ namespace UtilityDoctor.Editor
         public Selector selector;
         public string nodeName = "selector";
         GUISkin selectorSkin;
+        QualifierListVisualizer qualifierListVisualizer;
 
         public override void Draw()
         {
@@ -27,21 +28,7 @@ namespace UtilityDoctor.Editor
                 qualifiersRect.width = rect.width * 0.5f;
                 qualifiersRect.position = rect.position - rect.height * Vector2.down * 0.5f + rect.width * Vector2.right * 0.25f;
 
-                foreach (var qualifier in selector.qualifiers)
-                {
-                    if(qualifier.name == null)
-                    {
-                        qualifier.name = qualifier.GetType().Name;
-                    }
-                    
-                    if(GUI.Button(qualifiersRect, qualifier.name, selectorSkin.button))
-                    {
-                        var qualifierEditor = EditorWindow.GetWindow<QualifierWindow>();
-                        qualifierEditor.qualifier = qualifier;
-                    }
-                    
-                    qualifiersRect.position -= qualifiersRect.height * Vector2.down * 1.25f;
-                }
+                qualifierListVisualizer.Draw(qualifiersRect);
             }
         }
 
@@ -71,12 +58,14 @@ namespace UtilityDoctor.Editor
             rect.height += selectorSkin.button.fixedHeight;
         }
 
-        public SelectorNode(Vector2 position, Vector2 dimensions, NodeStyleInfo styleInfo,
+        public SelectorNode(Selector selector, Vector2 position, Vector2 dimensions, NodeStyleInfo styleInfo,
             Action<ConnectionPointBase> onClickInPoint, Action<ConnectionPointBase> onClickOutPoint,
             Action<Node> onClickRemoveNode, string inPointId = null, string outPointId = null) :
             base(position, dimensions, styleInfo, onClickInPoint, onClickOutPoint, onClickRemoveNode, inPointId, outPointId)
         {
+            this.selector = selector;
             selectorSkin = Resources.Load("DoctorGUISkin") as GUISkin;
+            qualifierListVisualizer = new QualifierListVisualizer(selector, selectorSkin);
         }
 
         public SelectorNode() { }
