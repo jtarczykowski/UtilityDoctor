@@ -111,5 +111,11 @@ namespace UtilityDoctor.Editor
             actionNodes.Add(actionNode);
             nodes.Add(actionNode);
         }
+
+        protected void OnGUI()
+        {
+            GridDrawer.DrawGrid(EditorConfig.smallGridSpacing, EditorConfig.smallGridOpacity, position, ref offset, ref drag);
+            GridDrawer.DrawGrid(EditorConfig.largeGridSpacing, EditorConfig.largeGridOpacity, position, ref offset, ref drag);
+        }
     }
 }
