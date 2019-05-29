@@ -4,7 +4,7 @@ namespace UtilityDoctor
 {
     public abstract class Qualifier
     {
-        public IAction action;
+        public ActionBase action;
         public List<Scorer> scorers = new List<Scorer>();
         public string name;
         public string description;
