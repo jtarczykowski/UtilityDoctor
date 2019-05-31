@@ -23,7 +23,7 @@ namespace AmazingNodeEditor
 
         public static Color gridColor;
 
-        public static NodeStyleInfo CreateDefaultNodeStyle()
+        public static NodeStyleInfo CreateDefaultEditorStyle()
         {
             var defaultNodeStyle = new NodeStyleInfo();
 
@@ -56,6 +56,15 @@ namespace AmazingNodeEditor
             pinStyle.border = new RectOffset(defaultPointSize, defaultPointSize, defaultNodeSize, defaultNodeSize);
 
             return pinStyle;
+        }
+
+        public static GUIStyle CreateDefaultNodeStyle()
+        {
+            var defaultNodeStyle = new GUIStyle();
+            defaultNodeStyle.normal.background = EditorGUIUtility.Load(defaultSkinPath) as Texture2D;
+            defaultNodeStyle.border = new RectOffset(defaultNodeSize, defaultNodeSize, defaultNodeSize, defaultNodeSize);
+
+            return defaultNodeStyle;
         }
     }
 }

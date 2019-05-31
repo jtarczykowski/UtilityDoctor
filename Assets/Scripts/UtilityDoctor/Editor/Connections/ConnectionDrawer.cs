@@ -11,6 +11,28 @@ namespace UtilityDoctor.Editor
         private static Vector2 bezierOffset = Vector2.left * 50f;
         private const float defaultHandleWidth = 2f;
 
+        public void DrawDraggedLine(ConnectionPin connectionPin, Vector2 mousePosition)
+        {
+            var pinCenter = connectionPin.rect.center;
+
+            if (connectionPin is InputConnectionPin)
+            {
+                Handles.DrawBezier(pinCenter, mousePosition,
+                    pinCenter + bezierOffset, mousePosition - bezierOffset,
+                    Color.white, null, defaultHandleWidth);
+
+                GUI.changed = true;
+            }
+            else if(connectionPin is OutputConnectionPin)
+            {
+                Handles.DrawBezier(pinCenter, mousePosition,
+                    pinCenter - bezierOffset, mousePosition + bezierOffset,
+                    Color.white, null, defaultHandleWidth);
+
+                GUI.changed = true;
+            }
+        }
+
         public void DrawConnections(List<Connection> connections)
         {
             foreach(var connection in connections)

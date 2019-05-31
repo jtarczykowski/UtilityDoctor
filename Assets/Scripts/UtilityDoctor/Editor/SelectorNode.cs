@@ -13,10 +13,8 @@ namespace UtilityDoctor.Editor
         GUISkin selectorSkin;
         QualifierListVisualizer qualifierListVisualizer;
 
-        public override void Draw()
+        public void Draw()
         {
-            base.Draw();
-
             if(selector != null)
             {
                 var titleRect = rect;
@@ -35,7 +33,8 @@ namespace UtilityDoctor.Editor
         protected override void ProcessContextMenu()
         {
             GenericMenu genericMenu = new GenericMenu();
-            genericMenu.AddItem(new GUIContent(removeNodeText), false, OnClickRemoveNode);
+            //genericMenu.AddItem(new GUIContent(removeNodeText), false, 
+            //    );
 
             var qualifierTypes = typeof(Qualifier).Assembly
                 .GetTypes()

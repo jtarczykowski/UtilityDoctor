@@ -10,9 +10,9 @@ namespace UtilityDoctor.Editor
     {
         readonly GUIStyle pinStyle;
 
-        public ConnectionPinDrawer(GUIStyle pinStyle = null)
+        public ConnectionPinDrawer()
         {
-            this.pinStyle = this.pinStyle == null ? EditorConfig.CreateDefaultConnectionPinStyle() : pinStyle;
+            pinStyle = EditorConfig.CreateDefaultConnectionPinStyle();
         }
 
         public void Draw(List<ConnectionPin> connectionPins)

@@ -12,10 +12,8 @@ namespace UtilityDoctor.Editor
         public string nodeName = "action";
         GUISkin actionSkin;
 
-        public override void Draw()
+        public void Draw()
         {
-            base.Draw();
-
             if(action != null)
             {
                 var titleRect = rect;
@@ -29,7 +27,7 @@ namespace UtilityDoctor.Editor
         protected override void ProcessContextMenu()
         {
             GenericMenu genericMenu = new GenericMenu();
-            genericMenu.AddItem(new GUIContent(removeNodeText), false, OnClickRemoveNode);
+            //genericMenu.AddItem(new GUIContent(removeNodeText), false, OnClickRemoveNode);
             genericMenu.ShowAsContext();
         }
 
