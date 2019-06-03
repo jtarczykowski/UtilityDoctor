@@ -34,14 +34,6 @@ namespace AmazingNodeEditor
             outPoint = new NodeConnectionPoint(this, ConnectionPointType.Out, styleInfo.outPointStyle, onClickOutPoint, outPointId);
             OnRemoveNode = onClickRemoveNode;
         }
-
-        protected const string removeNodeText = "Remove node";
-        protected virtual void ProcessContextMenu()
-        {
-            GenericMenu genericMenu = new GenericMenu();
-            genericMenu.AddItem(new GUIContent(removeNodeText), false, OnClickRemoveNode);
-            genericMenu.ShowAsContext();
-        }
     }
 
     public struct NodeStyleInfo

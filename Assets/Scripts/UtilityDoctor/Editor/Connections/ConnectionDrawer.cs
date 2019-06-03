@@ -35,6 +35,11 @@ namespace UtilityDoctor.Editor
 
         public void DrawConnections(List<Connection> connections)
         {
+            if(connections == null)
+            {
+                return;
+            }
+
             foreach(var connection in connections)
             {
                 var inCenter = connection.input.rect.center;

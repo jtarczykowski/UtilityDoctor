@@ -4,10 +4,11 @@ using System.Linq;
 using AmazingNodeEditor;
 using UnityEditor;
 using UnityEngine;
+using UtilityDoctor.ThirdParty;
 
 namespace UtilityDoctor.Editor
 {
-    public class UtilityDoctorEditor : NodeBasedEditor
+    public class UtilityDoctorEditor : EditorWindow
     {
         protected List<SelectorNode> selectorNodes;
         protected List<ActionNode> actionNodes;
@@ -25,9 +26,27 @@ namespace UtilityDoctor.Editor
         public void Init()
         {
             windowRenderer = new UtilityDoctorRenderer(this);
+            Signals.Get<AddSelector>().AddListener(OnAddSelector);
         }
 
-        public List<Node> nodes;
+        private void OnAddSelector(Vector2 position, Selector selector)
+        {
+            if (nodes == null)
+            {
+                nodes = new List<NodeBase>();
+            }
+
+            if (selectorNodes == null)
+            {
+                selectorNodes = new List<SelectorNode>();
+            }
+
+            var newNode = CreateSelectorNode(position, selector);
+            nodes.Add(newNode);
+            selectorNodes.Add(newNode);
+        }
+
+        public List<NodeBase> nodes;
         public List<Connection> connections;
         public List<ConnectionPin> connectionPins;
 
@@ -43,33 +62,8 @@ namespace UtilityDoctor.Editor
 
         private SelectorNode CreateSelectorNode(Vector2 mousePosition,Selector selector)
         {
-            var selectorNode = new SelectorNode();
-
-            //var selectorNode =  new SelectorNode(selector,
-            //    mousePosition,
-            //    defaultNodeDimensions,
-            //    defaultNodeStyle,
-            //    OnClickInPoint,
-            //    OnClickOutPoint,
-            //    OnClickRemoveNode);
+            var selectorNode = new SelectorNode(selector,mousePosition,EditorConfig.GetDefaultNodeDimensions());
             return selectorNode;
-        }
-
-        private void OnClickAddSelector(Vector2 mousePosition, Selector selector)
-        {
-            if (nodes == null)
-            {
-                nodes = new List<Node>();
-            }
-
-            if(selectorNodes == null)
-            {
-                selectorNodes = new List<SelectorNode>();
-            }
-
-            var newNode = CreateSelectorNode(mousePosition, selector);
-            nodes.Add(newNode);
-            selectorNodes.Add(newNode);
         }
 
         public void CreateConnection(ConnectionPin selectedPin, ConnectionPin pin)

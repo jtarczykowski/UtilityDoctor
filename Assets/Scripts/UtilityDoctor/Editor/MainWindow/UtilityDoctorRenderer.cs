@@ -37,7 +37,7 @@ namespace UtilityDoctor.Editor
             GridDrawer.DrawGrid(EditorConfig.largeGridSpacing, EditorConfig.largeGridOpacity, window.position, ref offset, ref drag);
             MenuBarDrawer.DrawMenuBar(window);
 
-            nodeDrawer.Draw(window.nodes);
+            nodeDrawer.Draw(window?.nodes);
             pinDrawer.Draw(window.connectionPins);
 
             if (selectedPin != null)
@@ -112,8 +112,8 @@ namespace UtilityDoctor.Editor
             draggedNode = null;
         }
 
-        private Node draggedNode;
-        private Node selectedNode;
+        private NodeBase draggedNode;
+        private NodeBase selectedNode;
 
         private void ProcessLeftClick(Vector2 mousePosition)
         {

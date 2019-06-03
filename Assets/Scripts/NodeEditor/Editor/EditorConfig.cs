@@ -66,5 +66,10 @@ namespace AmazingNodeEditor
 
             return defaultNodeStyle;
         }
+
+        public static Vector2 GetDefaultNodeDimensions()
+        {
+            return new Vector2(400, 200);
+        }
     }
 }

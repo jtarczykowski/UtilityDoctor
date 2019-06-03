@@ -14,8 +14,12 @@ namespace UtilityDoctor.Editor
             style = EditorConfig.CreateDefaultNodeStyle();
         }
 
-        public void Draw(List<Node> nodes)
+        public void Draw(List<NodeBase> nodes)
         {
+            if(nodes == null)
+            {
+                return;
+            }
             foreach(var node in nodes)
             {
                 GUI.Box(node.rect, node.title, style);

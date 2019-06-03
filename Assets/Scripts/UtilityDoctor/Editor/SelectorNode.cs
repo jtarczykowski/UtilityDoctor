@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace UtilityDoctor.Editor
 {
-    public class SelectorNode : Node
+    public class SelectorNode : NodeBase
     {
         public Selector selector;
         public string nodeName = "selector";
@@ -30,7 +30,7 @@ namespace UtilityDoctor.Editor
             }
         }
 
-        protected override void ProcessContextMenu()
+        protected void ProcessContextMenu()
         {
             GenericMenu genericMenu = new GenericMenu();
             //genericMenu.AddItem(new GUIContent(removeNodeText), false, 
@@ -57,10 +57,8 @@ namespace UtilityDoctor.Editor
             rect.height += selectorSkin.button.fixedHeight;
         }
 
-        public SelectorNode(Selector selector, Vector2 position, Vector2 dimensions, NodeStyleInfo styleInfo,
-            Action<ConnectionPointBase> onClickInPoint, Action<ConnectionPointBase> onClickOutPoint,
-            Action<Node> onClickRemoveNode, string inPointId = null, string outPointId = null) :
-            base(position, dimensions, styleInfo, onClickInPoint, onClickOutPoint, onClickRemoveNode, inPointId, outPointId)
+        public SelectorNode(Selector selector, Vector2 position, Vector2 dimensions) 
+            : base(position, dimensions)
         {
             this.selector = selector;
             selectorSkin = Resources.Load("DoctorGUISkin") as GUISkin;

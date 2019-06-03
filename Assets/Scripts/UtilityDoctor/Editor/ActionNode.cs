@@ -24,13 +24,6 @@ namespace UtilityDoctor.Editor
             }
         }
 
-        protected override void ProcessContextMenu()
-        {
-            GenericMenu genericMenu = new GenericMenu();
-            //genericMenu.AddItem(new GUIContent(removeNodeText), false, OnClickRemoveNode);
-            genericMenu.ShowAsContext();
-        }
-
         public ActionNode(Vector2 position, Vector2 dimensions, NodeStyleInfo styleInfo,
             Action<ConnectionPointBase> onClickInPoint, Action<ConnectionPointBase> onClickOutPoint,
             Action<Node> onClickRemoveNode, string inPointId = null, string outPointId = null) :
