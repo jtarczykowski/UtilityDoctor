@@ -11,7 +11,7 @@ namespace UtilityDoctor.Editor
 {
     public class UtilityDoctorRenderer
     {
-        protected NodeDrawer nodeDrawer;
+        protected SelectorNodeDrawer selectorNodeDrawer;
         protected ConnectionPinDrawer pinDrawer;
         protected ConnectionDrawer connectionDrawer;
         protected UtilityDoctorEditor window;
@@ -21,7 +21,7 @@ namespace UtilityDoctor.Editor
         public UtilityDoctorRenderer(UtilityDoctorEditor window)
         {
             this.window = window;
-            nodeDrawer = new NodeDrawer();
+            selectorNodeDrawer = new SelectorNodeDrawer();
             pinDrawer = new ConnectionPinDrawer();
             connectionDrawer = new ConnectionDrawer();
 
@@ -37,7 +37,7 @@ namespace UtilityDoctor.Editor
             GridDrawer.DrawGrid(EditorConfig.largeGridSpacing, EditorConfig.largeGridOpacity, window.position, ref offset, ref drag);
             MenuBarDrawer.DrawMenuBar(window);
 
-            nodeDrawer.Draw(window?.nodes);
+            selectorNodeDrawer.Draw(window?.selectorNodes);
             pinDrawer.Draw(window.connectionPins);
 
             if (selectedPin != null)

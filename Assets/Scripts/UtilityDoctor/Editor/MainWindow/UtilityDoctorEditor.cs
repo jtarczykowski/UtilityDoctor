@@ -10,8 +10,8 @@ namespace UtilityDoctor.Editor
 {
     public class UtilityDoctorEditor : EditorWindow
     {
-        protected List<SelectorNode> selectorNodes;
-        protected List<ActionNode> actionNodes;
+        public List<SelectorNode> selectorNodes;
+        public List<ActionNode> actionNodes;
 
         [MenuItem("Window/UtilityDoctorEditor")]
         protected static void OpenUtilityDoctor()
