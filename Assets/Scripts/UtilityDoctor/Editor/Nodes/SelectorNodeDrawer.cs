@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UtilityDoctor.ThirdParty;
 
 namespace UtilityDoctor.Editor
 {
@@ -60,6 +61,26 @@ namespace UtilityDoctor.Editor
 
                 qualifiersRect.position -= qualifiersRect.height * Vector2.down * 1.25f;
             }
+        }
+
+        public void ProcessContextMenu(SelectorNode node)
+        {
+            GenericMenu genericMenu = new GenericMenu();
+            //genericMenu.AddItem(new GUIContent(removeNodeText), false, 
+            //    );
+
+            var qualifierTypes = typeof(Qualifier).Assembly
+                .GetTypes()
+                .Where(t => t.IsSubclassOf(typeof(Qualifier)))
+                .ToArray();
+
+            foreach (var t in qualifierTypes)
+            {
+                genericMenu.AddItem(new GUIContent($"Add Qualifier/{t.Name}"), false,
+                    () => Signals.Get<AddQualifier>().Dispatch(node,t));
+            }
+
+            genericMenu.ShowAsContext();
         }
     }
 }

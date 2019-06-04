@@ -9,4 +9,5 @@ namespace UtilityDoctor.Editor
     public class LoadButtonPressed : ASignal { }
 
     public class AddSelector : ASignal<Vector2, Selector> { }
+    public class AddQualifier : ASignal<SelectorNode, System.Type> { }
 }

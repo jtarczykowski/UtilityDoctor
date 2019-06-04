@@ -9,7 +9,7 @@ using UtilityDoctor.ThirdParty;
 
 namespace UtilityDoctor.Editor
 {
-    public class UtilityDoctorRenderer
+    public partial class UtilityDoctorRenderer
     {
         protected SelectorNodeDrawer selectorNodeDrawer;
         protected ConnectionPinDrawer pinDrawer;
@@ -47,79 +47,6 @@ namespace UtilityDoctor.Editor
             connectionDrawer.DrawConnections(window.connections);
         }
 
-        public void ProcessContextMenu(Vector2 mousePosition)
-        {
-            GenericMenu genericMenu = new GenericMenu();
-            genericMenu.AddItem(new GUIContent("Add Selector/FirstScoreWins"), false,
-                () => Signals.Get<AddSelector>()
-                .Dispatch(mousePosition, new FirstScoreWinsSelector())
-                );
-            genericMenu.AddItem(new GUIContent("Add Selector/HighestScoreWins"), false,
-                () => Signals.Get<AddSelector>()
-                .Dispatch(mousePosition, new HighestScoreWinsSelector())
-                );
-
-
-            var actionTypes = typeof(ActionBase).Assembly
-                .GetTypes()
-                .Where(t => t.IsSubclassOf(typeof(ActionBase)))
-                .ToArray();
-
-            foreach (var t in actionTypes)
-            {
-                genericMenu.AddItem(new GUIContent($"Add Action/{t.Name}"), false,
-                    () => OnClickCreateActionNode(mousePosition, t));
-            }
-
-            genericMenu.ShowAsContext();
-        }
-
-        public void ProcessEvents(Event e)
-        {
-            drag = Vector2.zero;
-
-            switch (e.type)
-            {
-                case EventType.MouseDown:
-                    if (e.button == 0)
-                    {
-                        ProcessLeftClick(e.mousePosition);
-                    }
-
-                    if (e.button == 1)
-                    {
-                        ProcessContextMenu(e.mousePosition);
-                        e.Use();
-                    }
-                    break;
-
-                case EventType.MouseDrag:
-                    if (e.button == 0)
-                    {
-                        var nodeUnderMouse = FindNodeAtPosition(e.mousePosition);
-                        if (nodeUnderMouse != null)
-                        {
-                            DragNode(e.delta, nodeUnderMouse);
-                        }
-                        else
-                        {
-                            OnDragAll(e.delta);
-                        }
-                        e.Use();
-                    }
-                    break;
-
-                case EventType.MouseUp:
-                    StopDragging();
-                    break;
-            }
-        }
-
-        private void StopDragging()
-        {
-            draggedNode = null;
-        }
-
         private NodeBase draggedNode;
         private NodeBase selectedNode;
 
@@ -138,11 +65,16 @@ namespace UtilityDoctor.Editor
                 }
             }
 
-            ClearConnectionSelection();
+            selectedPin = null;
         }
 
         protected NodeBase FindNodeAtPosition(Vector2 position)
         {
+            if(window.nodes == null)
+            {
+                return null;
+            }
+
             foreach (var node in window.nodes)
             {
                 if (node.rect.Contains(position))
@@ -152,31 +84,6 @@ namespace UtilityDoctor.Editor
             }
 
             return null;
-        }
-
-        protected void ClearConnectionSelection()
-        {
-            selectedPin = null;
-        }
-
-        protected void OnDragAll(Vector2 delta)
-        {
-            drag = delta;
-
-            if (window.nodes != null)
-            {
-                foreach(var node in window.nodes)
-                {
-                    DragNode(delta, node);
-                }
-            }
-
-            GUI.changed = true;
-        }
-
-        protected void DragNode(Vector2 delta,NodeBase node)
-        {
-            node.rect.position += delta;
         }
 
         protected void OnClickPin(ConnectionPin pin)
@@ -196,7 +103,7 @@ namespace UtilityDoctor.Editor
                 window.CreateConnection(pin, selectedPin);
             }
 
-            ClearConnectionSelection();
+            selectedPin = null;
         }
 
         private void OnClickCreateActionNode(Vector2 mousePosition, Type t)
