@@ -96,7 +96,15 @@ namespace UtilityDoctor.Editor
                 case EventType.MouseDrag:
                     if (e.button == 0)
                     {
-                        OnDrag(e.delta);
+                        var nodeUnderMouse = FindNodeAtPosition(e.mousePosition);
+                        if (nodeUnderMouse != null)
+                        {
+                            DragNode(e.delta, nodeUnderMouse);
+                        }
+                        else
+                        {
+                            OnDragAll(e.delta);
+                        }
                         e.Use();
                     }
                     break;
@@ -133,12 +141,25 @@ namespace UtilityDoctor.Editor
             ClearConnectionSelection();
         }
 
+        protected NodeBase FindNodeAtPosition(Vector2 position)
+        {
+            foreach (var node in window.nodes)
+            {
+                if (node.rect.Contains(position))
+                {
+                    return node;
+                }
+            }
+
+            return null;
+        }
+
         protected void ClearConnectionSelection()
         {
             selectedPin = null;
         }
 
-        protected void OnDrag(Vector2 delta)
+        protected void OnDragAll(Vector2 delta)
         {
             drag = delta;
 
@@ -146,11 +167,16 @@ namespace UtilityDoctor.Editor
             {
                 foreach(var node in window.nodes)
                 {
-                    node.rect.position += delta;
+                    DragNode(delta, node);
                 }
             }
 
             GUI.changed = true;
+        }
+
+        protected void DragNode(Vector2 delta,NodeBase node)
+        {
+            node.rect.position += delta;
         }
 
         protected void OnClickPin(ConnectionPin pin)
