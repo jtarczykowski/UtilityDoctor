@@ -27,7 +27,9 @@ namespace UtilityDoctor.Editor
                 return;
             }
 
-            foreach(var node in nodes)
+            nodeDrawer.Draw(nodes.Select(n => n as NodeBase).ToList());
+
+            foreach (var node in nodes)
             {
                 var titleRect = node.rect;
                 titleRect.height = 20f;
@@ -38,13 +40,11 @@ namespace UtilityDoctor.Editor
                 qualifiersRect.width = node.rect.width * 0.5f;
                 qualifiersRect.position = node.rect.position - node.rect.height * Vector2.down * 0.5f + node.rect.width * Vector2.right * 0.25f;
 
-                DrawQualifierList(qualifiersRect,node);
+                DrawQualifierList(ref qualifiersRect,node);
             }
-
-            nodeDrawer.Draw(nodes.Select(n => n as NodeBase).ToList());
         }
 
-        private void DrawQualifierList(Rect qualifiersRect, SelectorNode node)
+        private void DrawQualifierList(ref Rect qualifiersRect, SelectorNode node)
         {
             foreach (var qualifier in node.selector.qualifiers)
             {
