@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<ArrayOfSelectorNode xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SelectorNode>
+    <id>840b9e98-e58e-463c-9f20-10ac6adcd109</id>
+    <rect>
+      <x>510</x>
+      <y>226</y>
+      <position>
+        <x>510</x>
+        <y>226</y>
+      </position>
+      <center>
+        <x>710</x>
+        <y>366</y>
+      </center>
+      <min>
+        <x>510</x>
+        <y>226</y>
+      </min>
+      <max>
+        <x>910</x>
+        <y>506</y>
+      </max>
+      <width>400</width>
+      <height>280</height>
+      <size>
+        <x>400</x>
+        <y>280</y>
+      </size>
+      <xMin>510</xMin>
+      <yMin>226</yMin>
+      <xMax>910</xMax>
+      <yMax>506</yMax>
+    </rect>
+    <selector xsi:type="HighestScoreWinsSelector">
+      <qualifiers>
+        <Qualifier xsi:type="FixedScoreQualifier">
+          <scorers />
+          <name>FixedScoreQualifier</name>
+          <score>0</score>
+        </Qualifier>
+        <Qualifier xsi:type="AllOrNothingQualifier">
+          <scorers />
+          <name>AllOrNothingQualifier</name>
+          <threshold>0</threshold>
+        </Qualifier>
+        <Qualifier xsi:type="AllOrNothingQualifier">
+          <scorers />
+          <name>AllOrNothingQualifier</name>
+          <threshold>0</threshold>
+        </Qualifier>
+        <Qualifier xsi:type="SumOnlyScoresAboveThresholdQualifier">
+          <scorers />
+          <name>SumOnlyScoresAboveThresholdQualifier</name>
+          <threshold>0</threshold>
+        </Qualifier>
+      </qualifiers>
+    </selector>
+    <nodeName>selector</nodeName>
+  </SelectorNode>
+</ArrayOfSelectorNode>

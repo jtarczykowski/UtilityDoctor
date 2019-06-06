@@ -1,7 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace UtilityDoctor
 {
+    [XmlInclude(typeof(AllOrNothingQualifier))]
+    [XmlInclude(typeof(FixedScoreQualifier))]
+    [XmlInclude(typeof(SumAboveThresholdOrNothingQualifier))]
+    [XmlInclude(typeof(SumAllQualifier))]
+    [XmlInclude(typeof(SumOnlyScoresAboveThresholdQualifier))]
     public abstract class Qualifier
     {
         public ActionBase action;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
 using AmazingNodeEditor;
 using UnityEditor;
 using UnityEngine;
@@ -22,10 +23,12 @@ namespace UtilityDoctor.Editor
         }
 
         UtilityDoctorRenderer windowRenderer;
+        private MainWindowSerializer serializer;
 
         public void Init()
         {
             windowRenderer = new UtilityDoctorRenderer(this);
+            serializer = new MainWindowSerializer(this);
             Signals.Get<AddSelector>().AddListener(OnAddSelector);
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Xml.Serialization;
 using AmazingNodeEditor;
 using UnityEditor;
 using UnityEngine;
@@ -35,8 +36,13 @@ namespace UtilityDoctor.Editor
             : base(position, dimensions)
         {
             this.selector = selector;
-            selectorSkin = Resources.Load("DoctorGUISkin") as GUISkin;
             qualifierListVisualizer = new QualifierListVisualizer(selector, selectorSkin);
+            Init();
+        }
+
+        public void Init()
+        {
+            selectorSkin = Resources.Load("DoctorGUISkin") as GUISkin;
             Signals.Get<AddQualifier>().AddListener(OnAddQualifier);
         }
 

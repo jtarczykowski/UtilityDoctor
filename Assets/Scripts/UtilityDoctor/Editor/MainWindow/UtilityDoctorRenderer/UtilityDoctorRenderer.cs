@@ -55,6 +55,11 @@ namespace UtilityDoctor.Editor
             draggedNode = null;
             selectedNode = null;
 
+            if(window?.nodes == null)
+            {
+                return;
+            }
+
             foreach(var node in window.nodes)
             {
                 if(node.rect.Contains(mousePosition))
