@@ -29,6 +29,8 @@ namespace UtilityDoctor.Editor
 
         public void Deserialize()
         {
+            window.Clear();
+
             var nodesDeserialized = XMLSaver.Deserialize<List<SelectorNode>>(selectorNodesPath);
             window.selectorNodes = nodesDeserialized;
             foreach(var node in nodesDeserialized)

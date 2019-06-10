@@ -24,7 +24,9 @@ namespace UtilityDoctor.Editor
 
             foreach(var pin in connectionPins)
             {
-                if(GUI.Button(pin.rect,string.Empty,pinStyle))
+                pin.Update();
+
+                if (GUI.Button(pin.rect,string.Empty,pinStyle))
                 {
                     Signals.Get<ConnectionPinClicked>().Dispatch(pin);
                 }

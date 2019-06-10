@@ -14,6 +14,8 @@ namespace UtilityDoctor.Editor
         public List<SelectorNode> selectorNodes;
         public List<ActionNode> actionNodes;
 
+        private ConnectionPinFactory pinFactory;
+
         [MenuItem("Window/UtilityDoctorEditor")]
         protected static void OpenUtilityDoctor()
         {
@@ -30,6 +32,17 @@ namespace UtilityDoctor.Editor
             windowRenderer = new UtilityDoctorRenderer(this);
             serializer = new MainWindowSerializer(this);
             Signals.Get<AddSelector>().AddListener(OnAddSelector);
+            connectionPins = new List<ConnectionPin>();
+            pinFactory = new ConnectionPinFactory(this);
+        }
+
+        public void Clear()
+        {
+            connectionPins?.Clear();
+            connections?.Clear();
+            nodes?.Clear();
+            selectorNodes?.Clear();
+            actionNodes?.Clear();
         }
 
         private void OnAddSelector(Vector2 position, Selector selector)

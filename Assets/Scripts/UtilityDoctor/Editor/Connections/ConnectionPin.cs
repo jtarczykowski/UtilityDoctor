@@ -13,5 +13,7 @@ namespace UtilityDoctor.Editor
         {
             this.id = id ?? System.Guid.NewGuid().ToString();
         }
+
+        public virtual void Update() { }
     }
 }

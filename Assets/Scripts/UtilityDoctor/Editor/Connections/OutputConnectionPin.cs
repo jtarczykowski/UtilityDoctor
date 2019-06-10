@@ -6,6 +6,9 @@ namespace UtilityDoctor.Editor
 {
     public class OutputConnectionPin : ConnectionPin
     {
+        public OutputConnectionPin(string id = null) : base(id)
+        {
 
+        }
     }
 }
