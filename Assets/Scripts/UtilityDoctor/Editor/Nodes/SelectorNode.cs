@@ -13,30 +13,11 @@ namespace UtilityDoctor.Editor
         public Selector selector;
         public string nodeName = "selector";
         GUISkin selectorSkin;
-        QualifierListVisualizer qualifierListVisualizer;
 
-        public void Draw()
-        {
-            if(selector != null)
-            {
-                var titleRect = rect;
-                titleRect.height = 20f;
-                titleRect.position += Vector2.down * 20f;
-                
-                GUI.Box(titleRect, selector.GetType().Name,selectorSkin.box);
-                var qualifiersRect = new Rect(titleRect);
-                qualifiersRect.width = rect.width * 0.5f;
-                qualifiersRect.position = rect.position - rect.height * Vector2.down * 0.5f + rect.width * Vector2.right * 0.25f;
-
-                qualifierListVisualizer.Draw(qualifiersRect);
-            }
-        }
-
-        public SelectorNode(Selector selector, Vector2 position, Vector2 dimensions) 
+        public SelectorNode(Selector selector, Vector2 position, Vector2 dimensions, UtilityDoctorEditor window) 
             : base(position, dimensions)
         {
             this.selector = selector;
-            qualifierListVisualizer = new QualifierListVisualizer(selector, selectorSkin);
             Init();
         }
 

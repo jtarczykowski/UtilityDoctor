@@ -8,11 +8,13 @@ namespace UtilityDoctor.Editor
 {
     public class ConnectionPinDrawer
     {
-        readonly GUIStyle pinStyle;
+        readonly GUIStyle inputPinStyle;
+        readonly GUIStyle outputPinStyle;
 
         public ConnectionPinDrawer()
         {
-            pinStyle = EditorConfig.CreateDefaultConnectionPinStyle();
+            inputPinStyle = EditorConfig.CreateInputConnectionPinStyle();
+            outputPinStyle = EditorConfig.CreateOutputConnectionPinStyle();
         }
 
         public void Draw(List<ConnectionPin> connectionPins)
@@ -25,8 +27,9 @@ namespace UtilityDoctor.Editor
             foreach(var pin in connectionPins)
             {
                 pin.Update();
+                var style = (pin is InputConnectionPin) ? inputPinStyle : outputPinStyle;
 
-                if (GUI.Button(pin.rect,string.Empty,pinStyle))
+                if (GUI.Button(pin.rect,string.Empty,style))
                 {
                     Signals.Get<ConnectionPinClicked>().Dispatch(pin);
                 }

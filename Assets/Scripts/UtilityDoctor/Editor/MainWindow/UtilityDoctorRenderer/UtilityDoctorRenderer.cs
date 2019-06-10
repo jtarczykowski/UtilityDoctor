@@ -21,7 +21,7 @@ namespace UtilityDoctor.Editor
         public UtilityDoctorRenderer(UtilityDoctorEditor window)
         {
             this.window = window;
-            selectorNodeDrawer = new SelectorNodeDrawer();
+            selectorNodeDrawer = new SelectorNodeDrawer(window);
             pinDrawer = new ConnectionPinDrawer();
             connectionDrawer = new ConnectionDrawer();
 

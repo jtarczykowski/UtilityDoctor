@@ -14,7 +14,7 @@ namespace UtilityDoctor.Editor
         public List<SelectorNode> selectorNodes;
         public List<ActionNode> actionNodes;
 
-        private ConnectionPinFactory pinFactory;
+        public ConnectionPinFactory pinFactory;
 
         [MenuItem("Window/UtilityDoctorEditor")]
         protected static void OpenUtilityDoctor()
@@ -78,7 +78,7 @@ namespace UtilityDoctor.Editor
 
         private SelectorNode CreateSelectorNode(Vector2 mousePosition,Selector selector)
         {
-            var selectorNode = new SelectorNode(selector,mousePosition,EditorConfig.GetDefaultNodeDimensions());
+            var selectorNode = new SelectorNode(selector,mousePosition,EditorConfig.GetDefaultNodeDimensions(), this);
             return selectorNode;
         }
 

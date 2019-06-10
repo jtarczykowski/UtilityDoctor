@@ -48,11 +48,21 @@ namespace AmazingNodeEditor
             return defaultNodeStyle;
         }
 
-        public static GUIStyle CreateDefaultConnectionPinStyle()
+        public static GUIStyle CreateInputConnectionPinStyle()
         {
             var pinStyle = new GUIStyle();
             pinStyle.normal.background = EditorGUIUtility.Load(defaultInPointSkinPath) as Texture2D;
             pinStyle.active.background = EditorGUIUtility.Load(defaultInPointActiveSkinPath) as Texture2D;
+            pinStyle.border = new RectOffset(defaultPointSize, defaultPointSize, defaultNodeSize, defaultNodeSize);
+
+            return pinStyle;
+        }
+
+        public static GUIStyle CreateOutputConnectionPinStyle()
+        {
+            var pinStyle = new GUIStyle();
+            pinStyle.normal.background = EditorGUIUtility.Load(defaultOutPointSkinPath) as Texture2D;
+            pinStyle.active.background = EditorGUIUtility.Load(defaultOutPointActiveSkinPath) as Texture2D;
             pinStyle.border = new RectOffset(defaultPointSize, defaultPointSize, defaultNodeSize, defaultNodeSize);
 
             return pinStyle;

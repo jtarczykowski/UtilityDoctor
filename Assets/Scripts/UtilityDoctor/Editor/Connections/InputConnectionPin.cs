@@ -12,7 +12,6 @@ namespace UtilityDoctor.Editor
         public InputConnectionPin(NodeBase node, string id = null) : base(id)
         {
             this.node = node;
-            rect = new Rect(Vector2.zero, new Vector2(10f, 20f));
         }
 
         public override void Update()

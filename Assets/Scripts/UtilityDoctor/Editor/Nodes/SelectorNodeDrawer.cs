@@ -13,11 +13,13 @@ namespace UtilityDoctor.Editor
     {
         readonly GUISkin selectorSkin;
         private NodeDrawer nodeDrawer;
+        private UtilityDoctorEditor window;
 
-        public SelectorNodeDrawer()
+        public SelectorNodeDrawer(UtilityDoctorEditor window)
         {
             selectorSkin = Resources.Load("DoctorGUISkin") as GUISkin;
             nodeDrawer = new NodeDrawer();
+            this.window = window;
         }
 
         public void Draw(List<SelectorNode> nodes)
@@ -44,6 +46,20 @@ namespace UtilityDoctor.Editor
             }
         }
 
+        private Dictionary<Qualifier, OutputConnectionPin> outputPins = new Dictionary<Qualifier, OutputConnectionPin>();
+
+        private OutputConnectionPin GetQualifierConnectionPin(Qualifier qualifier)
+        {
+            if (!outputPins.ContainsKey(qualifier))
+            {
+                var pin = window.pinFactory.CreateOutputConnectionPin();
+                outputPins.Add(qualifier, pin);
+                window.connectionPins.Add(pin);
+            }
+
+            return outputPins[qualifier];
+        }
+
         private void DrawQualifierList(ref Rect qualifiersRect, SelectorNode node)
         {
             foreach (var qualifier in node.selector.qualifiers)
@@ -52,13 +68,17 @@ namespace UtilityDoctor.Editor
                 {
                     qualifier.name = qualifier.GetType().Name;
                 }
-
+                GUILayout.BeginHorizontal();
                 if (GUI.Button(qualifiersRect, qualifier.name, selectorSkin.button))
                 {
                     var qualifierEditor = EditorWindow.GetWindow<QualifierWindow>();
                     qualifierEditor.qualifier = qualifier;
                 }
 
+                var pin = GetQualifierConnectionPin(qualifier);
+                var offset = new Vector2(qualifiersRect.width, 0);
+                pin.rect.position = qualifiersRect.position + offset;
+                GUILayout.EndHorizontal();
                 qualifiersRect.position -= qualifiersRect.height * Vector2.down * 1.25f;
             }
         }
