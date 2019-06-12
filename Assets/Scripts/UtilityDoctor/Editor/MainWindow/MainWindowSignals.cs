@@ -10,4 +10,5 @@ namespace UtilityDoctor.Editor
 
     public class AddSelector : ASignal<Vector2, Selector> { }
     public class AddQualifier : ASignal<SelectorNode, System.Type> { }
+    public class AddAction : ASignal<Vector2, ActionBase> { }
 }

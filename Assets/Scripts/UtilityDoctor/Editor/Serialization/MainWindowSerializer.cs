@@ -17,28 +17,23 @@ namespace UtilityDoctor.Editor
         }
 
         protected string selectorNodesPath = $"{Application.streamingAssetsPath}/selectorNodes.xml";
+        protected string actionNodesPath = $"{Application.streamingAssetsPath}/actionNodes.xml";
         protected string connectionsPath = $"{Application.streamingAssetsPath}/connections.xml";
         protected string pinsPath = $"{Application.streamingAssetsPath}/pins.xml";
 
         public void Serialize()
         {
             var selectorNodes = window.selectorNodes;
-            if(selectorNodes != null)
-            {
-                XMLSaver.Serialize(selectorNodes, selectorNodesPath);
-            }
+            XMLSaver.Serialize(selectorNodes, selectorNodesPath);
+
+            var actionNodes = window.actionNodes;
+            XMLSaver.Serialize(actionNodes, actionNodesPath);
 
             var connections = window.connections;
-            if(connections != null)
-            {
-                XMLSaver.Serialize(connections, connectionsPath);
-            }
+            XMLSaver.Serialize(connections, connectionsPath);
 
             var pins = window.connectionPins;
-            if(pins != null)
-            {
-                XMLSaver.Serialize(pins, pinsPath);
-            }
+            XMLSaver.Serialize(pins, pinsPath);
         }
 
         public void Deserialize()
@@ -49,6 +44,12 @@ namespace UtilityDoctor.Editor
             foreach(var node in window.selectorNodes)
             {
                 node.Init();
+                window.nodes.Add(node);
+            }
+
+            window.actionNodes = XMLSaver.Deserialize<List<ActionNode>>(actionNodesPath);
+            foreach(var node in window.actionNodes)
+            {
                 window.nodes.Add(node);
             }
 

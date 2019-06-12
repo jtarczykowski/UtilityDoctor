@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<ArrayOfActionNode xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ActionNode>
+    <id>a04c90ed-16cc-478d-a4e2-a8afba59615a</id>
+    <rect>
+      <x>1327</x>
+      <y>573</y>
+      <position>
+        <x>1327</x>
+        <y>573</y>
+      </position>
+      <center>
+        <x>1527</x>
+        <y>673</y>
+      </center>
+      <min>
+        <x>1327</x>
+        <y>573</y>
+      </min>
+      <max>
+        <x>1727</x>
+        <y>773</y>
+      </max>
+      <width>400</width>
+      <height>200</height>
+      <size>
+        <x>400</x>
+        <y>200</y>
+      </size>
+      <xMin>1327</xMin>
+      <yMin>573</yMin>
+      <xMax>1727</xMax>
+      <yMax>773</yMax>
+    </rect>
+    <action xsi:type="TestAction" />
+    <nodeName>action</nodeName>
+  </ActionNode>
+</ArrayOfActionNode>

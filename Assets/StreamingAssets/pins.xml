@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <ArrayOfConnectionPin xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ConnectionPin xsi:type="InputConnectionPin">
-    <id>7683bb9d-8ae4-49e3-bdea-fe1577a4cdc8</id>
+    <id>2639b74e-ed74-4097-b464-e0e3c685a637</id>
     <rect>
-      <x>414</x>
-      <y>267</y>
+      <x>579</x>
+      <y>387</y>
       <position>
-        <x>414</x>
-        <y>267</y>
+        <x>579</x>
+        <y>387</y>
       </position>
       <center>
-        <x>419</x>
-        <y>277</y>
+        <x>584</x>
+        <y>397</y>
       </center>
       <min>
-        <x>414</x>
-        <y>267</y>
+        <x>579</x>
+        <y>387</y>
       </min>
       <max>
-        <x>424</x>
-        <y>287</y>
+        <x>589</x>
+        <y>407</y>
       </max>
       <width>10</width>
       <height>20</height>
@@ -27,67 +27,33 @@
         <x>10</x>
         <y>20</y>
       </size>
-      <xMin>414</xMin>
-      <yMin>267</yMin>
-      <xMax>424</xMax>
-      <yMax>287</yMax>
+      <xMin>579</xMin>
+      <yMin>387</yMin>
+      <xMax>589</xMax>
+      <yMax>407</yMax>
     </rect>
-    <nodeId>f86189ff-73ea-4de2-a12b-43a0140e46d7</nodeId>
-  </ConnectionPin>
-  <ConnectionPin xsi:type="InputConnectionPin">
-    <id>9d036af9-8a66-4aa1-b7e6-8d60ecd2a5d6</id>
-    <rect>
-      <x>873</x>
-      <y>617</y>
-      <position>
-        <x>873</x>
-        <y>617</y>
-      </position>
-      <center>
-        <x>878</x>
-        <y>627</y>
-      </center>
-      <min>
-        <x>873</x>
-        <y>617</y>
-      </min>
-      <max>
-        <x>883</x>
-        <y>637</y>
-      </max>
-      <width>10</width>
-      <height>20</height>
-      <size>
-        <x>10</x>
-        <y>20</y>
-      </size>
-      <xMin>873</xMin>
-      <yMin>617</yMin>
-      <xMax>883</xMax>
-      <yMax>637</yMax>
-    </rect>
-    <nodeId>aa6c210f-39de-4b0f-b657-b92f8b557fb4</nodeId>
+    <nodeId>558484cf-b5fc-4053-a8f4-1bda4e46743a</nodeId>
   </ConnectionPin>
   <ConnectionPin xsi:type="OutputConnectionPin">
-    <id>bb2a3303-98ae-40ce-97a6-6a763d6d8087</id>
+    <id>a0d6e3bb-7e55-45a5-a015-c02bc3a26d9b</id>
     <rect>
-      <x>716</x>
-      <y>277</y>
+      <x>881</x>
+      <y>397</y>
       <position>
-        <x>716</x>
-        <y>277</y>
+        <x>881</x>
+        <y>397</y>
       </position>
       <center>
-        <x>721</x>
-        <y>287</y>
+        <x>886</x>
+        <y>407</y>
       </center>
       <min>
-        <x>716</x>
-        <y>277</y>
+        <x>881</x>
+        <y>397</y>
       </min>
       <max>
-        <x>726</x>
-        <y>297</y>
+        <x>891</x>
+        <y>417</y>
       </max>
       <width>10</width>
       <height>20</height>
@@ -95,113 +61,11 @@
         <x>10</x>
         <y>20</y>
       </size>
-      <xMin>716</xMin>
-      <yMin>277</yMin>
-      <xMax>726</xMax>
-      <yMax>297</yMax>
+      <xMin>881</xMin>
+      <yMin>397</yMin>
+      <xMax>891</xMax>
+      <yMax>417</yMax>
     </rect>
-    <ownerId>fb1e049c-88ad-4d46-8310-4e6cdbc83e2d</ownerId>
-  </ConnectionPin>
-  <ConnectionPin xsi:type="OutputConnectionPin">
-    <id>b890e759-5f53-4b2a-b591-ce7db613b547</id>
-    <rect>
-      <x>716</x>
-      <y>302</y>
-      <position>
-        <x>716</x>
-        <y>302</y>
-      </position>
-      <center>
-        <x>721</x>
-        <y>312</y>
-      </center>
-      <min>
-        <x>716</x>
-        <y>302</y>
-      </min>
-      <max>
-        <x>726</x>
-        <y>322</y>
-      </max>
-      <width>10</width>
-      <height>20</height>
-      <size>
-        <x>10</x>
-        <y>20</y>
-      </size>
-      <xMin>716</xMin>
-      <yMin>302</yMin>
-      <xMax>726</xMax>
-      <yMax>322</yMax>
-    </rect>
-    <ownerId>658057fe-a2ba-47df-a6d4-3bfe872b8172</ownerId>
-  </ConnectionPin>
-  <ConnectionPin xsi:type="OutputConnectionPin">
-    <id>66fb5eb9-4c18-4f98-ab8f-5eca3e5dc6ba</id>
-    <rect>
-      <x>716</x>
-      <y>327</y>
-      <position>
-        <x>716</x>
-        <y>327</y>
-      </position>
-      <center>
-        <x>721</x>
-        <y>337</y>
-      </center>
-      <min>
-        <x>716</x>
-        <y>327</y>
-      </min>
-      <max>
-        <x>726</x>
-        <y>347</y>
-      </max>
-      <width>10</width>
-      <height>20</height>
-      <size>
-        <x>10</x>
-        <y>20</y>
-      </size>
-      <xMin>716</xMin>
-      <yMin>327</yMin>
-      <xMax>726</xMax>
-      <yMax>347</yMax>
-    </rect>
-    <ownerId>4ac003c0-b0f8-4aa8-809a-538363c27036</ownerId>
-  </ConnectionPin>
-  <ConnectionPin xsi:type="InputConnectionPin">
-    <id>d65cf94f-d19d-49fa-b007-cefe27e479a2</id>
-    <rect>
-      <x>827</x>
-      <y>373</y>
-      <position>
-        <x>827</x>
-        <y>373</y>
-      </position>
-      <center>
-        <x>832</x>
-        <y>383</y>
-      </center>
-      <min>
-        <x>827</x>
-        <y>373</y>
-      </min>
-      <max>
-        <x>837</x>
-        <y>393</y>
-      </max>
-      <width>10</width>
-      <height>20</height>
-      <size>
-        <x>10</x>
-        <y>20</y>
-      </size>
-      <xMin>827</xMin>
-      <yMin>373</yMin>
-      <xMax>837</xMax>
-      <yMax>393</yMax>
-    </rect>
-    <nodeId>f7ddd189-4c9f-436c-bc42-ca7fd8acb594</nodeId>
+    <ownerId>1c61c144-0991-4333-a324-94b33590b4ed</ownerId>
   </ConnectionPin>
 </ArrayOfConnectionPin>

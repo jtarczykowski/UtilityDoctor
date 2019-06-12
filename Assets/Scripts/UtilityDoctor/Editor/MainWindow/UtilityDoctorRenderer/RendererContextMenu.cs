@@ -19,6 +19,10 @@ namespace UtilityDoctor.Editor
                     selectorNodeDrawer.ProcessContextMenu(selectorNode);
                     return;
                 }
+                else if (nodeAtPosition is ActionNode actionNode)
+                {
+                    actionNodeDrawer.ProcessContextMenu(actionNode);
+                }
                 return;
             }
 

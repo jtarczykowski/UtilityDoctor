@@ -37,6 +37,7 @@ namespace UtilityDoctor.Editor
             connections = new List<Connection>();
             nodes = new List<NodeBase>();
             selectorNodes = new List<SelectorNode>();
+            actionNodes = new List<ActionNode>();
         }
 
         public void Clear()
@@ -79,6 +80,14 @@ namespace UtilityDoctor.Editor
         {
             var connection = new Connection(inputPin, outputPin);
             connections.Add(connection);
+        }
+
+        public void CreateActionNode(Vector2 mousePosition, Type type)
+        {
+            var action = Activator.CreateInstance(type) as ActionBase;
+            var actionNode = new ActionNode(action, mousePosition, EditorConfig.GetDefaultNodeDimensions());
+            nodes.Add(actionNode);
+            actionNodes.Add(actionNode);
         }
     }
 }

@@ -14,6 +14,17 @@ namespace UtilityDoctor.Editor
         {
             this.window = window;
             Signals.Get<AddSelector>().AddListener(OnAddSelector);
+            Signals.Get<AddAction>().AddListener(OnAddAction);
+        }
+
+        private void OnAddAction(Vector2 position, ActionBase action)
+        {
+            var node = window
+                .actionNodes
+                .Find(sn => sn.action == action);
+
+            var inputPin = CreateInputConnectionPin(node, null);
+            window.connectionPins.Add(inputPin);
         }
 
         private void OnAddSelector(Vector2 position, Selector selector)
@@ -21,8 +32,8 @@ namespace UtilityDoctor.Editor
             var node = window
                 .selectorNodes
                 .Find(sn => sn.selector == selector);
-            var inputPin = CreateInputConnectionPin(node, null);
 
+            var inputPin = CreateInputConnectionPin(node, null);
             window.connectionPins.Add(inputPin);
         }
 

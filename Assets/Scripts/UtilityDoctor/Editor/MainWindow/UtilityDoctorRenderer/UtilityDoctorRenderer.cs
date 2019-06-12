@@ -12,6 +12,7 @@ namespace UtilityDoctor.Editor
     public partial class UtilityDoctorRenderer
     {
         protected SelectorNodeDrawer selectorNodeDrawer;
+        protected ActionNodeDrawer actionNodeDrawer;
         protected ConnectionPinDrawer pinDrawer;
         protected ConnectionDrawer connectionDrawer;
         protected UtilityDoctorEditor window;
@@ -22,6 +23,7 @@ namespace UtilityDoctor.Editor
         {
             this.window = window;
             selectorNodeDrawer = new SelectorNodeDrawer(window);
+            actionNodeDrawer = new ActionNodeDrawer(window);
             pinDrawer = new ConnectionPinDrawer();
             connectionDrawer = new ConnectionDrawer();
 
@@ -38,6 +40,7 @@ namespace UtilityDoctor.Editor
             MenuBarDrawer.DrawMenuBar(window);
 
             selectorNodeDrawer.Draw(window?.selectorNodes);
+            actionNodeDrawer.Draw(window?.actionNodes);
             pinDrawer.Draw(window.connectionPins);
 
             if (selectedPin != null)
@@ -109,9 +112,9 @@ namespace UtilityDoctor.Editor
             selectedPin = null;
         }
 
-        private void OnClickCreateActionNode(Vector2 mousePosition, Type t)
+        private void OnClickCreateActionNode(Vector2 mousePosition, Type type)
         {
-            //TODO
+            window.CreateActionNode(mousePosition, type);
         }
     }
 }
