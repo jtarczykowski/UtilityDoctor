@@ -17,6 +17,8 @@ namespace UtilityDoctor.Editor
         }
 
         protected string selectorNodesPath = $"{Application.streamingAssetsPath}/selectorNodes.xml";
+        protected string connectionsPath = $"{Application.streamingAssetsPath}/connections.xml";
+        protected string pinsPath = $"{Application.streamingAssetsPath}/pins.xml";
 
         public void Serialize()
         {
@@ -25,19 +27,65 @@ namespace UtilityDoctor.Editor
             {
                 XMLSaver.Serialize(selectorNodes, selectorNodesPath);
             }
+
+            var connections = window.connections;
+            if(connections != null)
+            {
+                XMLSaver.Serialize(connections, connectionsPath);
+            }
+
+            var pins = window.connectionPins;
+            if(pins != null)
+            {
+                XMLSaver.Serialize(pins, pinsPath);
+            }
         }
 
         public void Deserialize()
         {
             window.Clear();
 
-            var nodesDeserialized = XMLSaver.Deserialize<List<SelectorNode>>(selectorNodesPath);
-            window.selectorNodes = nodesDeserialized;
-            foreach(var node in nodesDeserialized)
+            window.selectorNodes = XMLSaver.Deserialize<List<SelectorNode>>(selectorNodesPath);
+            foreach(var node in window.selectorNodes)
             {
                 node.Init();
                 window.nodes.Add(node);
             }
+
+            window.connections = XMLSaver.Deserialize<List<Connection>>(connectionsPath);
+            window.connectionPins = XMLSaver.Deserialize<List<ConnectionPin>>(pinsPath);
+
+            var outputPins = new Dictionary<Qualifier, OutputConnectionPin>();
+
+            foreach(var pin in window.connectionPins)
+            {
+                if(pin is InputConnectionPin inpin)
+                {
+                    var inputNode = window.nodes.Find(n => n.id == inpin.nodeId);
+                    inpin.node = inputNode;
+                }
+                else if (pin is OutputConnectionPin outpin)
+                {
+                    foreach (var sn in window.selectorNodes)
+                    {
+                        foreach (var q in sn.selector.qualifiers)
+                        {
+                            if (q.id == outpin.ownerId)
+                            {
+                                outputPins.Add(q, outpin);
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach(var connection in window.connections)
+            {
+                connection.input = window.connectionPins.Find(p => p.id == connection.inputId) as InputConnectionPin;
+                connection.output = window.connectionPins.Find(p => p.id == connection.outputId) as OutputConnectionPin;
+            }
+
+            Signals.Get<QualifierPinsLoaded>().Dispatch(outputPins);
         }
     }
 }

@@ -20,6 +20,12 @@ namespace UtilityDoctor.Editor
             selectorSkin = Resources.Load("DoctorGUISkin") as GUISkin;
             nodeDrawer = new NodeDrawer();
             this.window = window;
+            Signals.Get<QualifierPinsLoaded>().AddListener(OnQualifierPinsLoaded);
+        }
+
+        private void OnQualifierPinsLoaded(Dictionary<Qualifier, OutputConnectionPin> qp)
+        {
+            outputPins = qp;
         }
 
         public void Draw(List<SelectorNode> nodes)
@@ -54,6 +60,7 @@ namespace UtilityDoctor.Editor
             {
                 var pin = window.pinFactory.CreateOutputConnectionPin();
                 outputPins.Add(qualifier, pin);
+                pin.ownerId = qualifier.id;
                 window.connectionPins.Add(pin);
             }
 

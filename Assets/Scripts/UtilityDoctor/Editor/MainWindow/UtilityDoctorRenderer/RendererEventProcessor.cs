@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,14 @@ namespace UtilityDoctor.Editor
 
                     if (e.button == 1)
                     {
-                        ProcessContextMenu(e.mousePosition);
+                        if(selectedPin != null)
+                        {
+                            selectedPin = null;
+                        }
+                        else
+                        {
+                            ProcessContextMenu(e.mousePosition);
+                        }
                         e.Use();
                     }
                     break;

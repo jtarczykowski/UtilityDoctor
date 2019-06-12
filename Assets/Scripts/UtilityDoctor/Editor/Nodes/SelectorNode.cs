@@ -31,9 +31,10 @@ namespace UtilityDoctor.Editor
         {
             if(node == this)
             {
-                var qualifier = Activator.CreateInstance(type);
-                selector.qualifiers.Add(qualifier as Qualifier);
+                var qualifier = Activator.CreateInstance(type) as Qualifier;
+                selector.qualifiers.Add(qualifier);
                 rect.height += selectorSkin.button.fixedHeight;
+                qualifier.id = Guid.NewGuid().ToString();
             }
         }
 

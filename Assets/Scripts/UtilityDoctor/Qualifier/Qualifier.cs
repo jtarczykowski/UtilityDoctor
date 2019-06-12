@@ -10,6 +10,7 @@ namespace UtilityDoctor
     [XmlInclude(typeof(SumOnlyScoresAboveThresholdQualifier))]
     public abstract class Qualifier
     {
+        public string id;
         public ActionBase action;
         public List<Scorer> scorers = new List<Scorer>();
         public string name;

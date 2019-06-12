@@ -1,25 +1,81 @@
 <?xml version="1.0"?>
 <ArrayOfSelectorNode xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SelectorNode>
-    <id>a7e7b7a4-b91f-4e23-b903-b30b1940b118</id>
+    <id>f86189ff-73ea-4de2-a12b-43a0140e46d7</id>
     <rect>
-      <x>782</x>
-      <y>149</y>
+      <x>416</x>
+      <y>147</y>
       <position>
-        <x>782</x>
-        <y>149</y>
+        <x>416</x>
+        <y>147</y>
       </position>
       <center>
-        <x>982</x>
-        <y>249</y>
+        <x>616</x>
+        <y>277</y>
       </center>
       <min>
-        <x>782</x>
-        <y>149</y>
+        <x>416</x>
+        <y>147</y>
       </min>
       <max>
-        <x>1182</x>
-        <y>349</y>
+        <x>816</x>
+        <y>407</y>
+      </max>
+      <width>400</width>
+      <height>260</height>
+      <size>
+        <x>400</x>
+        <y>260</y>
+      </size>
+      <xMin>416</xMin>
+      <yMin>147</yMin>
+      <xMax>816</xMax>
+      <yMax>407</yMax>
+    </rect>
+    <selector xsi:type="FirstScoreWinsSelector">
+      <qualifiers>
+        <Qualifier xsi:type="FixedScoreQualifier">
+          <id>fb1e049c-88ad-4d46-8310-4e6cdbc83e2d</id>
+          <scorers />
+          <name>FixedScoreQualifier</name>
+          <score>0</score>
+        </Qualifier>
+        <Qualifier xsi:type="SumAboveThresholdOrNothingQualifier">
+          <id>658057fe-a2ba-47df-a6d4-3bfe872b8172</id>
+          <scorers />
+          <name>SumAboveThresholdOrNothingQualifier</name>
+          <threshold>0</threshold>
+        </Qualifier>
+        <Qualifier xsi:type="SumAboveThresholdOrNothingQualifier">
+          <id>4ac003c0-b0f8-4aa8-809a-538363c27036</id>
+          <scorers />
+          <name>SumAboveThresholdOrNothingQualifier</name>
+          <threshold>0</threshold>
+        </Qualifier>
+      </qualifiers>
+    </selector>
+    <nodeName>selector</nodeName>
+  </SelectorNode>
+  <SelectorNode>
+    <id>aa6c210f-39de-4b0f-b657-b92f8b557fb4</id>
+    <rect>
+      <x>875</x>
+      <y>527</y>
+      <position>
+        <x>875</x>
+        <y>527</y>
+      </position>
+      <center>
+        <x>1075</x>
+        <y>627</y>
+      </center>
+      <min>
+        <x>875</x>
+        <y>527</y>
+      </min>
+      <max>
+        <x>1275</x>
+        <y>727</y>
       </max>
       <width>400</width>
       <height>200</height>
@@ -27,36 +83,36 @@
         <x>400</x>
         <y>200</y>
       </size>
-      <xMin>782</xMin>
-      <yMin>149</yMin>
-      <xMax>1182</xMax>
-      <yMax>349</yMax>
+      <xMin>875</xMin>
+      <yMin>527</yMin>
+      <xMax>1275</xMax>
+      <yMax>727</yMax>
     </rect>
-    <selector xsi:type="FirstScoreWinsSelector">
+    <selector xsi:type="HighestScoreWinsSelector">
       <qualifiers />
     </selector>
     <nodeName>selector</nodeName>
   </SelectorNode>
   <SelectorNode>
-    <id>047fb01a-6450-42cd-bae2-7c8b6be5bc21</id>
+    <id>f7ddd189-4c9f-436c-bc42-ca7fd8acb594</id>
     <rect>
-      <x>1270</x>
-      <y>265</y>
+      <x>829</x>
+      <y>283</y>
       <position>
-        <x>1270</x>
-        <y>265</y>
+        <x>829</x>
+        <y>283</y>
       </position>
       <center>
-        <x>1470</x>
-        <y>365</y>
+        <x>1029</x>
+        <y>383</y>
       </center>
       <min>
-        <x>1270</x>
-        <y>265</y>
+        <x>829</x>
+        <y>283</y>
       </min>
       <max>
-        <x>1670</x>
-        <y>465</y>
+        <x>1229</x>
+        <y>483</y>
       </max>
       <width>400</width>
       <height>200</height>
@@ -64,12 +120,12 @@
         <x>400</x>
         <y>200</y>
       </size>
-      <xMin>1270</xMin>
-      <yMin>265</yMin>
-      <xMax>1670</xMax>
-      <yMax>465</yMax>
+      <xMin>829</xMin>
+      <yMin>283</yMin>
+      <xMax>1229</xMax>
+      <yMax>483</yMax>
     </rect>
-    <selector xsi:type="HighestScoreWinsSelector">
+    <selector xsi:type="FirstScoreWinsSelector">
       <qualifiers />
     </selector>
     <nodeName>selector</nodeName>

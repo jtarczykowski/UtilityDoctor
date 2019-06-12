@@ -34,6 +34,9 @@ namespace UtilityDoctor.Editor
             Signals.Get<AddSelector>().AddListener(OnAddSelector);
             connectionPins = new List<ConnectionPin>();
             pinFactory = new ConnectionPinFactory(this);
+            connections = new List<Connection>();
+            nodes = new List<NodeBase>();
+            selectorNodes = new List<SelectorNode>();
         }
 
         public void Clear()
@@ -47,16 +50,6 @@ namespace UtilityDoctor.Editor
 
         private void OnAddSelector(Vector2 position, Selector selector)
         {
-            if (nodes == null)
-            {
-                nodes = new List<NodeBase>();
-            }
-
-            if (selectorNodes == null)
-            {
-                selectorNodes = new List<SelectorNode>();
-            }
-
             var newNode = CreateSelectorNode(position, selector);
             nodes.Add(newNode);
             selectorNodes.Add(newNode);
@@ -82,9 +75,10 @@ namespace UtilityDoctor.Editor
             return selectorNode;
         }
 
-        public void CreateConnection(ConnectionPin selectedPin, ConnectionPin pin)
+        public void CreateConnection(InputConnectionPin inputPin, OutputConnectionPin outputPin)
         {
-            //TODO
+            var connection = new Connection(inputPin, outputPin);
+            connections.Add(connection);
         }
     }
 }

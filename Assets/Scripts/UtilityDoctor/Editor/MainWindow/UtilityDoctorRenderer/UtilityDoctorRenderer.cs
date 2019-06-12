@@ -69,8 +69,6 @@ namespace UtilityDoctor.Editor
                     GUI.changed = true;
                 }
             }
-
-            selectedPin = null;
         }
 
         protected NodeBase FindNodeAtPosition(Vector2 position)
@@ -99,13 +97,13 @@ namespace UtilityDoctor.Editor
                 return;
             }
 
-            if(selectedPin is InputConnectionPin && pin is OutputConnectionPin)
+            if(selectedPin is InputConnectionPin inPin && pin is OutputConnectionPin outPin)
             {
-                window.CreateConnection(selectedPin, pin);
+                window.CreateConnection(inPin, outPin);
             }
-            else if(selectedPin is OutputConnectionPin && pin is OutputConnectionPin)
+            else if(selectedPin is OutputConnectionPin op && pin is InputConnectionPin ip)
             {
-                window.CreateConnection(pin, selectedPin);
+                window.CreateConnection(ip, op);
             }
 
             selectedPin = null;
