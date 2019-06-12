@@ -88,6 +88,7 @@ namespace UtilityDoctor.Editor
             var actionNode = new ActionNode(action, mousePosition, EditorConfig.GetDefaultNodeDimensions());
             nodes.Add(actionNode);
             actionNodes.Add(actionNode);
+            Signals.Get<AddAction>().Dispatch(mousePosition, action);
         }
     }
 }

@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <ArrayOfSelectorNode xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SelectorNode>
-    <id>558484cf-b5fc-4053-a8f4-1bda4e46743a</id>
+    <id>e681f29f-a1b3-455b-8a86-d7ba3258a70e</id>
     <rect>
-      <x>581</x>
-      <y>287</y>
+      <x>543</x>
+      <y>181</y>
       <position>
-        <x>581</x>
-        <y>287</y>
+        <x>543</x>
+        <y>181</y>
       </position>
       <center>
-        <x>781</x>
-        <y>397</y>
+        <x>743</x>
+        <y>291</y>
       </center>
       <min>
-        <x>581</x>
-        <y>287</y>
+        <x>543</x>
+        <y>181</y>
       </min>
       <max>
-        <x>981</x>
-        <y>507</y>
+        <x>943</x>
+        <y>401</y>
       </max>
       <width>400</width>
       <height>220</height>
@@ -27,18 +27,18 @@
         <x>400</x>
         <y>220</y>
       </size>
-      <xMin>581</xMin>
-      <yMin>287</yMin>
-      <xMax>981</xMax>
-      <yMax>507</yMax>
+      <xMin>543</xMin>
+      <yMin>181</yMin>
+      <xMax>943</xMax>
+      <yMax>401</yMax>
     </rect>
     <selector xsi:type="FirstScoreWinsSelector">
       <qualifiers>
-        <Qualifier xsi:type="FixedScoreQualifier">
-          <id>1c61c144-0991-4333-a324-94b33590b4ed</id>
+        <Qualifier xsi:type="AllOrNothingQualifier">
+          <id>1a2c7ac1-5347-4a3d-a1ee-7c857e2546d2</id>
           <scorers />
-          <name>FixedScoreQualifier</name>
-          <score>0</score>
+          <name>AllOrNothingQualifier</name>
+          <threshold>0</threshold>
         </Qualifier>
       </qualifiers>
     </selector>

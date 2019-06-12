@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <ArrayOfActionNode xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ActionNode>
-    <id>a04c90ed-16cc-478d-a4e2-a8afba59615a</id>
+    <id>f8d86902-f067-4119-be9b-3de320516da4</id>
     <rect>
-      <x>1327</x>
-      <y>573</y>
+      <x>1293</x>
+      <y>238</y>
       <position>
-        <x>1327</x>
-        <y>573</y>
+        <x>1293</x>
+        <y>238</y>
       </position>
       <center>
-        <x>1527</x>
-        <y>673</y>
+        <x>1493</x>
+        <y>338</y>
       </center>
       <min>
-        <x>1327</x>
-        <y>573</y>
+        <x>1293</x>
+        <y>238</y>
       </min>
       <max>
-        <x>1727</x>
-        <y>773</y>
+        <x>1693</x>
+        <y>438</y>
       </max>
       <width>400</width>
       <height>200</height>
@@ -27,12 +27,12 @@
         <x>400</x>
         <y>200</y>
       </size>
-      <xMin>1327</xMin>
-      <yMin>573</yMin>
-      <xMax>1727</xMax>
-      <yMax>773</yMax>
+      <xMin>1293</xMin>
+      <yMin>238</yMin>
+      <xMax>1693</xMax>
+      <yMax>438</yMax>
     </rect>
-    <action xsi:type="TestAction" />
+    <action xsi:type="AnotherTestAction" />
     <nodeName>action</nodeName>
   </ActionNode>
 </ArrayOfActionNode>

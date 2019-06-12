@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <ArrayOfConnectionPin xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ConnectionPin xsi:type="InputConnectionPin">
-    <id>2639b74e-ed74-4097-b464-e0e3c685a637</id>
+    <id>eace554c-d013-46e4-b645-1bbaef6670d2</id>
     <rect>
-      <x>579</x>
-      <y>387</y>
+      <x>541</x>
+      <y>281</y>
       <position>
-        <x>579</x>
-        <y>387</y>
+        <x>541</x>
+        <y>281</y>
       </position>
       <center>
-        <x>584</x>
-        <y>397</y>
+        <x>546</x>
+        <y>291</y>
       </center>
       <min>
-        <x>579</x>
-        <y>387</y>
+        <x>541</x>
+        <y>281</y>
       </min>
       <max>
-        <x>589</x>
-        <y>407</y>
+        <x>551</x>
+        <y>301</y>
       </max>
       <width>10</width>
       <height>20</height>
@@ -27,33 +27,67 @@
         <x>10</x>
         <y>20</y>
       </size>
-      <xMin>579</xMin>
-      <yMin>387</yMin>
-      <xMax>589</xMax>
-      <yMax>407</yMax>
+      <xMin>541</xMin>
+      <yMin>281</yMin>
+      <xMax>551</xMax>
+      <yMax>301</yMax>
     </rect>
-    <nodeId>558484cf-b5fc-4053-a8f4-1bda4e46743a</nodeId>
+    <nodeId>e681f29f-a1b3-455b-8a86-d7ba3258a70e</nodeId>
+  </ConnectionPin>
+  <ConnectionPin xsi:type="InputConnectionPin">
+    <id>645ab7ec-9005-42eb-89c2-61503009d977</id>
+    <rect>
+      <x>1291</x>
+      <y>328</y>
+      <position>
+        <x>1291</x>
+        <y>328</y>
+      </position>
+      <center>
+        <x>1296</x>
+        <y>338</y>
+      </center>
+      <min>
+        <x>1291</x>
+        <y>328</y>
+      </min>
+      <max>
+        <x>1301</x>
+        <y>348</y>
+      </max>
+      <width>10</width>
+      <height>20</height>
+      <size>
+        <x>10</x>
+        <y>20</y>
+      </size>
+      <xMin>1291</xMin>
+      <yMin>328</yMin>
+      <xMax>1301</xMax>
+      <yMax>348</yMax>
+    </rect>
+    <nodeId>f8d86902-f067-4119-be9b-3de320516da4</nodeId>
   </ConnectionPin>
   <ConnectionPin xsi:type="OutputConnectionPin">
-    <id>a0d6e3bb-7e55-45a5-a015-c02bc3a26d9b</id>
+    <id>e9d28f60-3ee3-436b-bd5b-64a4558280d8</id>
     <rect>
-      <x>881</x>
-      <y>397</y>
+      <x>843</x>
+      <y>291</y>
       <position>
-        <x>881</x>
-        <y>397</y>
+        <x>843</x>
+        <y>291</y>
       </position>
       <center>
-        <x>886</x>
-        <y>407</y>
+        <x>848</x>
+        <y>301</y>
       </center>
       <min>
-        <x>881</x>
-        <y>397</y>
+        <x>843</x>
+        <y>291</y>
       </min>
       <max>
-        <x>891</x>
-        <y>417</y>
+        <x>853</x>
+        <y>311</y>
       </max>
       <width>10</width>
       <height>20</height>
@@ -61,11 +95,11 @@
         <x>10</x>
         <y>20</y>
       </size>
-      <xMin>881</xMin>
-      <yMin>397</yMin>
-      <xMax>891</xMax>
-      <yMax>417</yMax>
+      <xMin>843</xMin>
+      <yMin>291</yMin>
+      <xMax>853</xMax>
+      <yMax>311</yMax>
     </rect>
-    <ownerId>1c61c144-0991-4333-a324-94b33590b4ed</ownerId>
+    <ownerId>1a2c7ac1-5347-4a3d-a1ee-7c857e2546d2</ownerId>
   </ConnectionPin>
 </ArrayOfConnectionPin>
